@@ -11,13 +11,13 @@ import dagger.android.AndroidInjector;
 import dagger.multibindings.IntoMap;
 
 /**
- * Created by SES\leonardom on 12/07/17.
+ * Created by lmiyagi on 7/12/17.
  */
-@Module(subcomponents = MainComponent.class)
-public abstract class BindingModule {
+@Module(subcomponents = {MainComponent.class})
+abstract class BindingModule {
 
     @Binds
     @IntoMap
     @ActivityKey(MainActivity.class)
-    abstract AndroidInjector.Factory<? extends Activity> bindMainActivityInjetorFactory(MainComponent.Builder builder);
+    abstract AndroidInjector.Factory<? extends Activity> bindMainActivityInjectorFactory(MainComponent.Builder builder);
 }

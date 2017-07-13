@@ -1,6 +1,7 @@
 package br.com.leonardomiyagi.baseapplication.presentation.main;
 
 import br.com.leonardomiyagi.baseapplication.presentation.graph.ActivityScoped;
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import dagger.Subcomponent;
@@ -15,15 +16,13 @@ public interface MainComponent extends AndroidInjector<MainActivity> {
 
     @Subcomponent.Builder
     abstract class Builder extends AndroidInjector.Builder<MainActivity> {
-
     }
 
     @Module
     abstract class MainModule {
-        @Provides
+
+        @Binds
         @ActivityScoped
-        MainContract.Presenter providePresenter() {
-            return new MainPresenter();
-        }
+        abstract MainContract.Presenter provideMainPresenter(MainPresenter presenter);
     }
 }
