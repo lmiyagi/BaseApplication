@@ -5,3 +5,4 @@ Basic Clean ApplIcation with:
 - Databinding
 - Dagger2
 - RxJava/RxAndroid
+- RetroLambda
