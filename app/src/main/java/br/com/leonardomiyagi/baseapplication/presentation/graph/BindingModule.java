@@ -2,8 +2,6 @@ package br.com.leonardomiyagi.baseapplication.presentation.graph;
 
 import android.app.Activity;
 
-import br.com.leonardomiyagi.baseapplication.presentation.kotlin.KotlinExampleActivity;
-import br.com.leonardomiyagi.baseapplication.presentation.kotlin.KotlinExampleComponent;
 import br.com.leonardomiyagi.baseapplication.presentation.main.MainActivity;
 import br.com.leonardomiyagi.baseapplication.presentation.main.MainComponent;
 import dagger.Binds;
@@ -15,17 +13,11 @@ import dagger.multibindings.IntoMap;
 /**
  * Created by lmiyagi on 7/12/17.
  */
-@Module(subcomponents = {MainComponent.class,
-        KotlinExampleComponent.class})
+@Module(subcomponents = {MainComponent.class})
 abstract class BindingModule {
 
     @Binds
     @IntoMap
     @ActivityKey(MainActivity.class)
     abstract AndroidInjector.Factory<? extends Activity> bindMainActivityInjectorFactory(MainComponent.Builder builder);
-
-    @Binds
-    @IntoMap
-    @ActivityKey(KotlinExampleActivity.class)
-    abstract AndroidInjector.Factory<? extends Activity> bindKotlinExampleActivityInjectorFactory(KotlinExampleComponent.Builder builder);
 }
