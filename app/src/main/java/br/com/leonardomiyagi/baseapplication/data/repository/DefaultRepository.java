@@ -1,5 +1,7 @@
 package br.com.leonardomiyagi.baseapplication.data.repository;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Inject;
 
 import br.com.leonardomiyagi.baseapplication.domain.repository.Repository;
@@ -16,6 +18,6 @@ public class DefaultRepository implements Repository {
 
     @Override
     public Single<String> getMessage() {
-        return null;
+        return Single.just("This message comes from the repository!").delay(3, TimeUnit.SECONDS);
     }
 }

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import javax.inject.Inject;
 
 import br.com.leonardomiyagi.baseapplication.domain.message.GetMainMessage;
+import br.com.leonardomiyagi.baseapplication.domain.repository.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
@@ -17,10 +18,13 @@ public class MainPresenter implements MainContract.Presenter {
     private CompositeDisposable disposables;
 
     private final GetMainMessage getMainMessage;
+    private final SchedulerProvider schedulerProvider;
 
     @Inject
-    MainPresenter(GetMainMessage getMainMessage) {
+    MainPresenter(GetMainMessage getMainMessage,
+                  SchedulerProvider schedulerProvider) {
         this.getMainMessage = getMainMessage;
+        this.schedulerProvider = schedulerProvider;
         disposables = new CompositeDisposable();
     }
 
@@ -38,6 +42,8 @@ public class MainPresenter implements MainContract.Presenter {
     @SuppressLint("CheckResult")
     private void getMainMessage() {
         getMainMessage.execute()
+                .subscribeOn(schedulerProvider.io())
+                .observeOn(schedulerProvider.main())
                 .doOnSubscribe(disposable -> {
                     disposables.add(disposable);
                     view.showLoading();
