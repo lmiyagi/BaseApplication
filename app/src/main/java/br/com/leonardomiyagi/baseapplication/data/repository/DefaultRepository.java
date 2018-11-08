@@ -18,6 +18,6 @@ public class DefaultRepository implements Repository {
 
     @Override
     public Single<String> getMessage() {
-        return Single.just("This message comes from the repository!").delay(3, TimeUnit.SECONDS);
+        return Single.error(new Throwable("This message comes from the repository!"));
     }
 }

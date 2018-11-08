@@ -31,13 +31,21 @@ public class BaseActivity extends AppCompatActivity {
         } else {
             message = throwable.getMessage();
         }
+        String positiveMessage;
+        if (tryAgainAction == null) {
+            positiveMessage = getString(R.string.global_ok);
+        } else {
+            positiveMessage = getString(R.string.global_try_again);
+        }
         DialogUtils.showFailureDialog(this,
                 message,
-                getString(R.string.global_ok),
+                positiveMessage,
                 (dialogInterface, i) -> {
                     if (tryAgainAction != null) {
                         tryAgainAction.run();
                     }
-                });
+                },
+                tryAgainAction == null ? null : getString(R.string.global_cancel),
+                null);
     }
 }

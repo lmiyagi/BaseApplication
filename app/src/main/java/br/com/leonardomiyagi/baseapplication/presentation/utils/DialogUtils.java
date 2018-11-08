@@ -44,6 +44,10 @@ public class DialogUtils {
         buildDialog(context, context.getString(R.string.global_op_failure), message, positiveMessage, null, positiveAction, null, null, true).show();
     }
 
+    public static void showFailureDialog(Context context, String message, String positiveMessage, DialogInterface.OnClickListener positiveAction, String negativeMessage, DialogInterface.OnClickListener negativeAction) {
+        buildDialog(context, context.getString(R.string.global_op_failure), message, positiveMessage, negativeMessage, positiveAction, negativeAction, null, true).show();
+    }
+
     public static void showFailureDialog(Context context, @StringRes int message, @StringRes int positiveMessage, @StringRes int negativeMessage, DialogInterface.OnClickListener positiveAction, DialogInterface.OnClickListener negativeAction) {
         buildDialog(context, context.getString(R.string.global_op_failure), context.getString(message), context.getString(positiveMessage), context.getString(negativeMessage), positiveAction, negativeAction, null, true).show();
     }
