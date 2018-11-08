@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="br.com.leonardomiyagi.baseapplication.presentation.core.databinding.PlaceholderData" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:visibility="@{data.visible ? View.VISIBLE : View.GONE}"
+        tools:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="@{data.loadingVisible ? View.VISIBLE : View.GONE }" />
+
+            <ImageView
+                imageResource="@{data.icon}"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:visibility="@{data.icon == null ? View.GONE : View.VISIBLE}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@{data.message}"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:visibility="@{data.message == null ? View.GONE : View.VISIBLE }" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> data.executeTryAgainAction()}"
+                android:text="@{data.tryAgainMessage == null ? @string/global_try_again : data.tryAgainMessage}"
+                android:textColor="@android:color/white"
+                android:visibility="@{data.showTryAgain() ? View.VISIBLE : View.GONE}" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>

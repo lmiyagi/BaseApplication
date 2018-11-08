@@ -1,4 +1,4 @@
-package br.com.leonardomiyagi.baseapplication.presentation.graph;
+package br.com.leonardomiyagi.baseapplication.presentation.core.graph;
 
 import javax.inject.Singleton;
 

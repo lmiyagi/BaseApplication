@@ -1,4 +1,4 @@
-package br.com.leonardomiyagi.baseapplication.presentation.graph;
+package br.com.leonardomiyagi.baseapplication.presentation.core.graph;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

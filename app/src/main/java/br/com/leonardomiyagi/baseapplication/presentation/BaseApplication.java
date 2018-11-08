@@ -5,7 +5,7 @@ import android.app.Application;
 
 import javax.inject.Inject;
 
-import br.com.leonardomiyagi.baseapplication.presentation.graph.DaggerAppComponent;
+import br.com.leonardomiyagi.baseapplication.presentation.core.graph.DaggerAppComponent;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
