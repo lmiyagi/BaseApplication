@@ -4,14 +4,14 @@ import javax.inject.Singleton;
 
 import br.com.leonardomiyagi.baseapplication.presentation.BaseApplication;
 import dagger.Component;
-import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
+import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
  * Created by SES\leonardom on 11/07/17.
  */
 @Singleton
-@Component(modules = {AndroidInjectionModule.class,
+@Component(modules = {AndroidSupportInjectionModule.class,
         AppModule.class,
         BindingModule.class})
 public interface AppComponent extends AndroidInjector<BaseApplication> {
