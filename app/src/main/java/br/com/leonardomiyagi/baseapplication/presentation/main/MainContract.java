@@ -1,5 +1,6 @@
 package br.com.leonardomiyagi.baseapplication.presentation.main;
 
+import br.com.leonardomiyagi.baseapplication.presentation.core.base.BasePresenter;
 import br.com.leonardomiyagi.baseapplication.presentation.core.base.RequestView;
 
 /**
@@ -12,9 +13,6 @@ public interface MainContract {
         void renderMessage(String message);
     }
 
-    interface Presenter {
-        void attachView(View view);
-
-        void detachView();
+    abstract class Presenter extends BasePresenter<View> {
     }
 }
