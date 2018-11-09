@@ -8,7 +8,6 @@ import java.net.SocketTimeoutException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 /**
  * Created by lmiyagi on 13/07/17.
@@ -21,23 +20,21 @@ public class RequestException extends Exception {
     private final Response response;
     private final ErrorType errorType;
     private final Throwable throwable;
-    private final Retrofit retrofit;
 
-    private RequestException(String url, String errorMessage, Response response, ErrorType errorType, Throwable throwable, Retrofit retrofit) {
+    private RequestException(String url, String errorMessage, Response response, ErrorType errorType, Throwable throwable) {
         super(errorMessage);
         this.url = url;
         this.errorMessage = errorMessage;
         this.response = response;
         this.errorType = errorType;
         this.throwable = throwable;
-        this.retrofit = retrofit;
     }
 
-    public static RequestException httpError(String url, String message, Retrofit retrofit) {
-        return new RequestException(url, message, null, ErrorType.HTTP, null, retrofit);
+    public static RequestException httpError(String url, String message) {
+        return new RequestException(url, message, null, ErrorType.HTTP, null);
     }
 
-    public static RequestException httpError(String url, Response response, Retrofit retrofit) {
+    public static RequestException httpError(String url, Response response) {
         String message = response.message() + " (" + response.code() + ")";
 
         try {
@@ -53,16 +50,16 @@ public class RequestException extends Exception {
         } catch (JSONException | NullPointerException | IOException ignored) {
         }
 
-        return new RequestException(url, message, response, ErrorType.HTTP, null, retrofit);
+        return new RequestException(url, message, response, ErrorType.HTTP, null);
     }
 
     public static RequestException networkError(IOException e) {
-        return new RequestException(null, e.getMessage(), null, ErrorType.NETWORK, e, null);
+        return new RequestException(null, e.getMessage(), null, ErrorType.NETWORK, e);
     }
 
     public static RequestException unexpectedError(Throwable t) {
         t.printStackTrace();
-        return new RequestException(null, t.getMessage(), null, ErrorType.UNEXPECTED, t, null);
+        return new RequestException(null, t.getMessage(), null, ErrorType.UNEXPECTED, t);
     }
 
     public boolean isHttpError() {

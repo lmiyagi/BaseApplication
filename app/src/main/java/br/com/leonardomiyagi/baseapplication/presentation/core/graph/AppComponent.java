@@ -13,6 +13,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Singleton
 @Component(modules = {AndroidSupportInjectionModule.class,
         AppModule.class,
+        ApiModule.class,
         BindingModule.class})
 public interface AppComponent extends AndroidInjector<BaseApplication> {
 }

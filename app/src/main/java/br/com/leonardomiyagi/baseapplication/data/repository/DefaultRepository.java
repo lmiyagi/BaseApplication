@@ -1,9 +1,8 @@
 package br.com.leonardomiyagi.baseapplication.data.repository;
 
-import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
 
+import br.com.leonardomiyagi.baseapplication.data.api.ApiClient;
 import br.com.leonardomiyagi.baseapplication.domain.repository.Repository;
 import io.reactivex.Single;
 
@@ -12,12 +11,15 @@ import io.reactivex.Single;
  */
 public class DefaultRepository implements Repository {
 
+    private final ApiClient apiClient;
+
     @Inject
-    public DefaultRepository() {
+    public DefaultRepository(ApiClient apiClient) {
+        this.apiClient = apiClient;
     }
 
     @Override
     public Single<String> getMessage() {
-        return Single.just("This message comes from the repository!").delay(3, TimeUnit.SECONDS);
+        return apiClient.getMessageFromAPI();
     }
 }
