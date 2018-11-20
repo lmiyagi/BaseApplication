@@ -9,7 +9,7 @@ import br.com.leonardomiyagi.baseapplication.presentation.utils.DialogUtils;
 import dagger.android.AndroidInjection;
 
 /**
- * Created by SES\leonardom on 11/07/17.
+ * Created by lmiyagi on 11/07/17.
  */
 
 public class BaseActivity extends AppCompatActivity {

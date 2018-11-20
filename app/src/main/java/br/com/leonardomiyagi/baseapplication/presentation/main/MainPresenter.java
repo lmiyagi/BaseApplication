@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import br.com.leonardomiyagi.baseapplication.domain.message.GetMainMessage;
 
 /**
- * Created by SES\leonardom on 11/07/17.
+ * Created by lmiyagi on 11/07/17.
  */
 
 public class MainPresenter extends MainContract.Presenter {

@@ -5,7 +5,7 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * Created by SES\leonardom on 12/07/17.
+ * Created by lmiyagi on 12/07/17.
  */
 @Module
 public abstract class MainModule {

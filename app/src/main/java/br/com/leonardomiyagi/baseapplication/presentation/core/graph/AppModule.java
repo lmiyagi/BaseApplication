@@ -10,7 +10,7 @@ import dagger.Binds;
 import dagger.Module;
 
 /**
- * Created by SES\leonardom on 11/07/17.
+ * Created by lmiyagi on 11/07/17.
  */
 @Module
 public abstract class AppModule {

@@ -4,7 +4,7 @@ import br.com.leonardomiyagi.baseapplication.presentation.core.base.BasePresente
 import br.com.leonardomiyagi.baseapplication.presentation.core.base.RequestView;
 
 /**
- * Created by SES\leonardom on 11/07/17.
+ * Created by lmiyagi on 11/07/17.
  */
 
 public interface MainContract {

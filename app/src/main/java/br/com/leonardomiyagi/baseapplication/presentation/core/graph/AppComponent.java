@@ -8,7 +8,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
- * Created by SES\leonardom on 11/07/17.
+ * Created by lmiyagi on 11/07/17.
  */
 @Singleton
 @Component(modules = {AndroidSupportInjectionModule.class,
